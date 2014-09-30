@@ -216,6 +216,20 @@ function amshopby_ajax_update(data){
 
     amshopby_start();
     amshopby_ajax_init();
+    
+    $j(".products-grid .item").hover(function(){
+    	var h = $j(this).height();
+    	var cw = $j(this).find('.container').width();
+    	$j(this).css("height", h+60)
+    	$j(this).find('.container').css("width", cw);
+
+	    $j(this).addClass('hover');
+    },function(){
+        $j(this).removeClass('hover'); 
+        $j(this).css("height", "")   
+        $j(this).find('.container').css("width", '');
+    });
+
     try {
         //amshopby_external();
     } catch (e) {
